@@ -1,0 +1,28 @@
+import roque.*
+import pepita.*
+import masAves.*
+import instituto.*
+import susana.*
+import comidas.*
+
+test "el instituto contrata entrenadores" {
+	instituto.contratar(roque)
+	instituto.contratar(susana)
+	assert.equals(#{roque, susana}, instituto.entrenadores())
+}
+
+test "el instituto prescinde entrenadores"{
+	instituto.contratar(roque)
+	instituto.contratar(susana)
+	instituto.prescindir(roque)
+	assert.equals(#{susana}, instituto.entrenadores())
+}
+
+test "el instituto tiene buen ambiente"{
+	susana.tuPupiloEs(pepita)
+	pepita.comer(alpiste, 20)
+	roque.agregarPupilo(pepita)
+	roque.agregarPupilo(pipa)
+	roque.agregarPupilo(pepon)
+	assert.equals (true, instituto.buenAmbiente())
+}
